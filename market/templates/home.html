@@ -1,0 +1,63 @@
+{% extends 'index.html' %}
+{% block title %} Home {% endblock %}
+{% block content %}
+<style>
+ body{
+    background: rgb(249,252,252);
+background: radial-gradient(circle, rgba(249,252,252,1) 50%, rgb(217, 216, 216) 100%);
+background-size: cover;
+ }
+.landing-page {
+    
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 10%;
+    padding: 0;
+}
+
+/* Style for the title section */
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    padding: 50px;
+}
+
+.title h1 {
+    font-size: 64px;
+}
+
+.title p {
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* Style for the Get Started button */
+.get-started-button {
+    display: inline-block;
+    background-color: #E9B824;
+    color: #fff;
+    font-size: 20px;
+    padding: 15px 30px;
+    margin-top: 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+
+
+/* Style for the footer */
+
+</style>
+<div class="landing-page">
+    <div class="title">
+        <div class="container"><h1>Artisona</h1>
+        <p>Discover and Share Art</p>
+        <a href="{{ url_for("login") }}" class="get-started-button">Get Started</a>
+    </div></div>
+ 
+
+{% endblock %}

@@ -1,0 +1,141 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block content %}
+<style>
+    .register {
+        background-color: whitesmoke;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10%;
+        margin-bottom: 2%;
+    }
+
+    .registration-form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        width: 500px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .txt_field {
+        position: relative;
+        margin: 20px 0;
+    }
+
+    .txt_field input {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        border-bottom: 2px solid #219C90;
+        transition: 0.1s;
+        background: transparent;
+        outline: none;
+        font-size: 1rem;
+        color: #333;
+    }
+
+    .txt_field label {
+        position: absolute;
+        top: 15px;
+        left: 0;
+        color: #219C90;
+        pointer-events: none;
+        transition: 0.3s;
+    }
+
+    .txt_field input:focus ~ label,
+    .txt_field input:valid ~ label {
+        top: -15px;
+        font-size: 0.8rem;
+        color: #219C90;
+    }
+
+    .form-label {
+        font-weight: lighter;
+    }
+
+    .submit-button {
+        background-color: #E9B824;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .submit-button:hover {
+        background-color: #EE9322;
+    }
+
+    .register h1 {
+        color: #219C90;
+        font-size: 2rem;
+        margin-bottom: 20px;
+    }
+
+    /* Password Strength Indicators */
+    .container.weak .txt_field1 #password1 {
+        border: solid 2px;
+        border-color: #FF6969;
+        content: "Your password is weak";
+    }
+    
+    .container.moderate .txt_field1 #password1 {
+        border: solid 2px;
+        border-color: #EE9322;
+        content: "Your password is moderate";
+    }
+    
+    .container.strong .txt_field1 #password1 {
+        border: solid 2px;
+        border-color: #A2FF86;
+        content: "Your password is strong";
+    }
+</style>
+
+<div class="register">
+    <form class="registration-form" method="post">
+        {{ form.hidden_tag() }}
+        <div class="container">
+            <h1>Register</h1>
+            <div class="txt_field">
+                {{ form.username() }}
+                <label class="form-label">User Name</label>
+            </div>
+
+            <div class="txt_field">
+                {{ form.email() }}
+                <label class="form-label">Email Address</label>
+            </div>
+
+            <div class="txt_field">
+                {{ form.mobile() }}
+                <label class="form-label">Mobile Number</label>
+            </div>
+
+            <div id="pass_str" class="txt_field txt_field1">
+                {{ form.password1(class="password1") }}
+                <label class="form-label">Password</label>
+            </div>
+
+            <div class="txt_field">
+                {{ form.password2() }}
+                <label class="form-label">Confirm Password</label>
+            </div>
+
+            <button type="submit" class="submit-button">Register</button>
+        </div>
+    </form>
+</div>
+
+<link href="{{ url_for('static', filename='static/script.js') }}">
+{% endblock %}

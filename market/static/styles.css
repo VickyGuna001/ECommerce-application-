@@ -1,0 +1,182 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+a{
+  text-decoration: none;
+}
+body{
+  background-color: whitesmoke;
+  margin: 0;
+ 
+}
+.topbars{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  z-index: 3;
+  top: 0;
+}
+
+/* Style the alert container */
+.danger {
+  padding: 10px;
+  background-color: rgba(232, 123, 123);
+  border-bottom: 3px solid rgb(69, 4, 4);
+  border-radius: 4px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(69, 4, 4);
+}
+
+/* Style the message inside the alert */
+.danger .message {
+  flex: 1; /* Take up all available space */
+  padding: 10px;
+}
+
+/* Style the close button (x) */
+.danger button {
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Style the close button on hover */
+.danger button:hover {
+  color: darkred;
+}
+
+
+.menu_bar
+{ position:relative;
+  background-color: #219C90;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  
+}
+
+ul .logo{
+  color: #F0F0F0;
+  font-size: 28px;
+  font-family: 'Unica One', sans-serif;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-top: 12px;
+}
+
+.logo span{
+  color: #4F709C;
+}
+
+.menu_bar ul , .menu_bar li {
+  list-style: none;
+  display: flex;
+}
+
+.menu_bar ul li , #market, #cart{
+  padding: 10px 10px;
+}
+
+.menu_bar ul li a , #market{
+  color: #F0F0F0;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+}
+
+.menu_bar ul li a:hover, #market:hover {
+  color: #E9B824;
+}
+
+.menu_bar ul li a i{
+  padding: 5px;
+}
+
+.menu_bar .searchbar input{
+  
+  height: 35px;
+  width: 400px;
+  border-style: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
+}
+.menu_bar .searchbar{
+  
+  display: flex;
+  
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+  
+}
+
+.menu_bar .searchbar .search{
+  background-color: #E9B824;
+  border-radius: 0 10px 10px 0;
+  height: 35px;
+  width: 50px;
+  border-style: none;
+  color: black;
+}
+.menu_bar .searchbar .search:hover , .get-started-button:hover{
+  background-color: #EE9322;
+}
+
+
+.admit ,.info{
+  padding: 10px;
+  background-color: rgb(187, 236, 193);
+  border-bottom: 3px solid rgb(6, 69, 4);
+  border-radius: 4px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(6, 69, 4);
+  
+}
+
+/* Style the message inside the alert */
+.admit .message , .info{
+  flex: 1; /* Take up all available space */
+  padding: 10px;
+  
+}
+.info{
+  background-color: #96b5ded5;
+  color: #2e4159;
+  border-bottom: 3px solid #2e4159;
+}
+
+/* Style the close button (x) */
+.admit button , .info button{
+  background-color: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Style the close button on hover */
+.admit button:hover {
+  color: rgb(1, 52, 18);
+}
+
+.info button:hover{
+  color: #446185;
+}
+
+
+
+

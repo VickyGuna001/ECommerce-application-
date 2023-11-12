@@ -1,0 +1,52 @@
+{% extends 'index.html' %}
+
+{% block content %}
+<style>
+    /* Define a class for the search results container */
+    .search-results {
+        margin-top: 20px;
+    }
+
+    /* Style each individual search result item */
+    .search-result {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #f9f9f9;
+    }
+
+    /* Define the style for the search result item's name */
+    .search-result-name {
+        font-weight: bold;
+        color: #333;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .search-result-name a {
+        text-decoration: none;
+        color: #219C90;
+    }
+
+    /* Additional styling, if needed */
+</style>
+
+<p>You searched for: {{ searched }}</p>
+{% if posts %}
+    <!-- Add a container for the search results with the "search-results" class -->
+    <div class="search-results">
+        {% for post in posts %}
+            <!-- Each search result is a div with the "search-result" class -->
+            <div class="search-result">
+                <!-- Style the name of the search result using the "search-result-name" class -->
+                <div class="search-result-name">
+                    <a href="/{{ post[0] }}">{{ post[0] }}</a>
+                    <p>&#8377 {{ post[1] }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <h3>No results found for "{{ searched }}"</h3>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,154 @@
+{% extends 'index.html' %}
+{% block title %} Login {% endblock %}
+{% block content %}
+<style>
+/* Reset some default styles */
+
+.product {
+    max-width: 100%;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-height: 95vh;
+}
+
+.product img {
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.product_name {
+    float: top;
+}
+
+.product-info {
+    display: flex;
+}
+
+.product-info .details {
+    margin-left: 50px;
+}
+
+.product-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #219C90;
+}
+
+.product-info .description {
+    height: 50px;
+    width: 1000px;
+}
+
+.product-info p {
+    color: #555;
+}
+
+.reviews {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.review {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.review .user {
+    font-weight: bold;
+}
+
+.add-review {
+    margin-top: 20px;
+}
+
+.add-review form {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.submit-button {
+    background-color: #E9B824;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: grid;
+    justify-content: center;
+}
+
+.submit-button:hover {
+    background-color: #EE9322;
+}
+.add-to-cart{
+    display: grid;
+    justify-content: center;
+    margin-top: 12%;
+}
+.add-review input,
+.add-review textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.add-review button {
+    width: 100%;
+    padding: 12px;
+    background-color: #219C90;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-review button:hover {
+    background-color: #0056b3;
+}
+
+.price {
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Product Page with Review System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="product">
+        <div class="product-info">
+            <img src="{{ item.img_url }}" alt="{{ item.name }} Image" width="200" height="200">
+            <div class="details">
+                <h1 class="product_name">{{ item.name }}</h1>
+                <p class="description">{{ item.description }}.</p>
+                <p class="price">&#8377 {{ item.price }}</p>
+            </div>
+        </div><hr>
+
+   
+       
+    
+    
+</body>
+
+</html>
+
+{% endblock %}

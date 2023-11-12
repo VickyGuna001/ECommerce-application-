@@ -1,0 +1,230 @@
+{% extends 'index.html' %}
+{% block title %}E-commerce Products{% endblock %}
+
+{% block content %}
+<style>
+  
+
+  .container {
+    display: flex; /* Use flexbox to arrange the main content and aside */
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .qty {
+    display: flex;
+    justify-content: space-between;
+    width: 57.5px;
+    height: 30.5px;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    width: 100%;
+  }
+.container .button-row button{
+    display: block;
+    min-width: 80px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: small;
+    color: grey;
+    border: none;
+    border-radius: 5px ;
+    color: white;
+    background-color: #219C90;
+}
+
+  .product-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    width: 100%;
+    height: 350px;
+  }
+
+  .product-card h2 {
+    font-size: 16px;
+    margin: 2px;
+    color: #219C90;
+    height: 37px;
+    width: 176.29px;
+  }
+
+  .product-card img {
+    max-height: 180px;
+    max-width: 180px;
+  }
+
+  .price {
+    color: #219C90;
+    font-weight: bold;
+  }
+
+  .submit-button {
+    background-color: #E9B824;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .submit-button:hover {
+    background-color: #EE9322;
+  }
+
+  .chk-btn {
+    background-color: #E9B824;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .chk-btn:hover {
+    background-color: #EE9322;
+  }
+
+  .cart ul {
+    list-style-type: none;
+    font-size: 12px;
+  }
+
+  .cart #cart-items {
+    padding: 20px;
+    width: 315px;
+    height: 625px;
+    overflow: auto;
+  }
+
+  .cart .total {
+    margin: 20px;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    z-index: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 290px;
+    padding: 10px;
+    text-align: center;
+    align-items: center;
+    color: #053B50;
+    font-size: 18px;
+  }
+
+  .cart .total button {
+    background-color: #219C90;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .cart .total button:hover {
+    background-color: #053B50;
+  }
+
+  .asdf {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  img {
+    height: 180px;
+    width: 180px;
+  }
+
+  .description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Number of lines to show */
+    -webkit-box-orient: vertical;
+    white-space: normal;
+    font-size: smaller;
+    color: grey;
+    margin: 5px;
+    height: 46.5px;
+    width: 170.6px; /* Set the maximum height to represent 3 lines */
+  }
+
+  .items-list {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0 10px 0;
+  }
+
+  #market {
+    color: #E9B824;
+  }
+
+  hr {
+    border-color: #219C90;
+  }
+
+  .items-name {
+    padding: 2px;
+  }
+
+  aside {
+    width: 330px;
+    height: 90vh;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 70px;
+    right: 0;
+    background-color: #C4DFDF;
+  }
+
+</style>
+
+<div class="container">
+    <div class="button-row">
+        <hr><button class="btn">Sculptures</button>
+        <button class="btn" >Jewellery</button>
+        <button class="btn">Home decor</button> 
+        <button class="btn">Collectables</button>
+        <button class="btn">Painting</button><hr>
+      </div>
+  <main class="product-grid">
+    {% for item in item_name %}
+    <!-- Product Cards (Generated Dynamically) -->
+    <div class="product-card">
+      <img src="{{item.img_url}}" alt="Product 1">
+      <a href="/market/{{ item.id }}"><h2>{{ item.name }}</h2></a>
+      <p class="description">{{ item.description }}</p>
+      <div class="asdf">
+        <span class="price">&#8377 {{ item.price }}</span>
+        <button href="#" class='submit-button' onclick="addToCart('{{item.id}}','{{item.name}}', '{{ item.price }}')">Add to Cart</button>
+      </div>
+    </div>
+    {% endfor %}
+  </main>
+  <aside>
+    <div Id="sidebar">
+      <div class="cart">
+        <div id="cart" class="cart">
+          <center><h1 style="color: #219C90;">Shopping Cart</h1></center>
+          <ul id="cart-items">
+          </ul>
+          <div class="total">
+            <p>Total: &#8377 <span id="cart-total">0</span></p>
+            <button>Check Out</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+</div>
+
+<script href="{{ url_for('static', filename='static/script.js' ) }}"></script>
+{% endblock %}
